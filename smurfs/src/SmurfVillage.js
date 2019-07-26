@@ -14,11 +14,15 @@ const SmurfVillage = props => {
     <div>
       <h1>Hello from the Village</h1>
       <button onClick={getSmurfs}>Smurf Button!</button>
-      {props.smurfs.map(smurf => {
-        return (
-          <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
-        );
-      })}
+      {props.smurfs ? (
+        props.smurfs.map(smurf => {
+          return (
+            <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
+          );
+        })
+      ) : (
+        <h1>Loading the Smurfs</h1>
+      )}
     </div>
   );
 };
