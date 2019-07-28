@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { addSmurf } from "../store/actions";
 
 const SmurfForm = props => {
-  const incomingSmurf = e => {
-    e.preventDefault();
+  const incomingSmurf = () => {
     props.addSmurf(smurf);
   };
 
@@ -25,7 +24,12 @@ const SmurfForm = props => {
   return (
     <div>
       <h3>Hello from SmurfForm</h3>
-      <form onSubmit={incomingSmurf}>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          incomingSmurf();
+        }}
+      >
         <input
           name="name"
           placeholder="name"

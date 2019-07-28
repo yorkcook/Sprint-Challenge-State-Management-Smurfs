@@ -17,7 +17,12 @@ const SmurfVillage = props => {
       {props.smurfs ? (
         props.smurfs.map(smurf => {
           return (
-            <Smurf name={smurf.name} age={smurf.age} height={smurf.height} />
+            <Smurf
+              key={smurf.id}
+              name={smurf.name}
+              age={smurf.age}
+              height={smurf.height}
+            />
           );
         })
       ) : (
